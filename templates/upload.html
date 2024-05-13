@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>upload</title>
+    <link rel="stylesheet" href="../static/files/css/bootstrap.css">
+    <script src="../static/files/js/bootstrap.js"></script>
+    <style>
+        body{
+            background-image: url("../static/images/background.jpeg");
+            background-size: cover;
+        }
+    </style>
+    <link rel="icon" type="image/png" sizes="256x256" href="../static/images/logo.png">
+
+</head>
+<body class="bg">
+    {%include'Navbar.html'%}
+    <br><br><br>
+    <br>
+    <div class="container form-center" >
+        <section class="row">
+            <div class="col-md-6 ms-5 card shadow p-2 bg-dark">
+                <h5 class="display-5 text-warning">UPLOAD YOUR ELEMENT</h5>
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <input type="text" required name="product_name" placeholder="Enter Name" id="" class="form-control">
+                    <br>
+                    <textarea name="product_description" placeholder="Enter Descriptions" class="form-control" required="" cols="10" rows="4"></textarea><br>
+                    <input type="number" placeholder="cost" name="product_cost" id="" class="form-control">
+                    <br>
+                    <select name="product_category" class="form-control"> 
+                        <option value="vegetable" name="vegetable">Vegetable</option>
+                        <option value="fruit" name="fruit">Fruit</option>
+                        <option value="tool" name="tool">Tool</option>
+                        <option value="feed" name="feed">Animal Feed</option>
+                    </select>
+
+                    
+                    <br>
+                    <input type="file" name="image_name" id="" class="form-control"><br>
+                    <input type="submit" value="upload" class="btn-success">
+                </form>
+                <b class="text-success">{{message}}</b>
+            </div>
+        </section>
+    </div>
+    <br>
+    
+    {%include'footer.html'%}
+</body>
+</html>

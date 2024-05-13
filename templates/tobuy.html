@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="../static/files/css/bootstrap.css">
+</head>
+<body>
+    {% include 'Navbar.html' %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <section class="row p-2 m-2">
+        <div class="col-md-4">
+            <img src="../static/images/{{product[5]}}" height="300" width="300" alt="" class="img-thumbnail shadow p-4">
+            <h3>{{product[1]}}</h3>
+        </div>
+        <div class="col-md-8">
+            <p class="text-muted">{{product[2]}}</p>
+            <h4 id="">KES {{product[3]}}</h4>
+            <b class="text-danger">Category:{{product[4]}}</b>
+
+
+            <h2 class="">Your Cart</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ product[1] }}</td>
+                        <td>{{ product[3] }}</td>
+                        <td>
+                            <input type="number" id="quantity" value="1" min="1" class="form-control" />
+                            <button onclick="increaseQuantity()">+</button>
+                            <button onclick="reduceQuantity()" class="padding-left-3">-</button>
+                        </td>
+                        <td id="total">{{ product[3] }}</td>
+                    </tr>
+                </tbody>
+                <h3 class="m-5">Total Amount To Pay: <span id="cart-total">{{ product[3] }}</span></h3>
+                <button onclick="checkout()" class="btn btn-success">Buy Now</button>
+            </table>
+        </div>
+    </section>
+    <section class="row">
+        <div class="col-md-4">
+            {% if session['key'] %}
+                {% else %}
+                <a href="/login" class=" rounded-circle">Login</a>
+                <a href="/register" class="m-2 p-4 bg-primary text-dark rounded-circle">Register</a>
+                {% endif %}
+                
+                <br><br><br>
+        </div>
+        
+
+        {% include 'footer.html' %}
+        
+    <script>
+        function increaseQuantity() {
+            var quantityInput = document.getElementById('quantity');
+            var currentQuantity = parseInt(quantityInput.value);
+            quantityInput.value = currentQuantity + 1;
+            updateTotal();
+        }
+        function reduceQuantity() {
+            var quantityInput = document.getElementById('quantity');
+            var currentQuantity = parseInt(quantityInput.value);
+            quantityInput.value = currentQuantity - 1;
+            updateTotal();
+        }
+
+        function updateTotal() {
+            var quantity = parseInt(document.getElementById('quantity').value);
+            var price = parseFloat('{{ product[3] }}'); // Assuming price is in the template
+            var total = quantity * price;
+            document.getElementById('total').innerText = total.toFixed(2);
+            document.getElementById('cart-total').innerText = total.toFixed(2);
+        }
+
+        function checkout() {
+        
+
+        }
+        updateTotal();
+    </script>
+</body>
+</html>

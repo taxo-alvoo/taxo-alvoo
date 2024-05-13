@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/png" sizes="256x256" href="../static/images/logo.png">
+    <link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/files/css/lightslider.css">
+    <link rel="stylesheet" href="../static/files/css/style.css">
+
+    
+    <script src="../static/files/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/files/js/jquery.js"></script>
+    <script src="../static/files/js/script.js"></script>
+    <script src="../static/files/js/lightslider.js"></script>
+</head>
+<style>
+    body{
+        background-image: url("../static/images/background.jpeg");
+        background-size: cover;
+        background-position: fixed;
+    }
+    .img{
+            transition: 2s;
+        }
+        .img:hover{
+            transform: scale(1.1);
+        }
+        span{
+            transition: 2s;
+        }
+        span:hover{
+            transform: scale(2);
+        }
+        card{
+          background-color: darkslategrey;
+        }
+       </style>
+<body class="bg show ">
+    {%include 'Navbar.html'%}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    {%include 'carousel.html'%}
+    <br>
+    <br>
+
+
+
+
+
+
+    <section>
+        <div class="row bg-dark" >
+        <ul class="cs-hidden shown" style="margin-left: 17rem;">
+            {% for item in vegetable%}
+
+            <b class="text-light " style="text-size-adjust: 50px;" style="margin-left: 17rem;"> {{item[1]}}</b>
+            <div class="col-md-6">
+                <img src="../static/images/{{item[5]}}" alt="{{item[1]}}" class="text-light m-5" width="300px" height="300px" style="margin-left: 17rem;">  
+                
+                    <a href="/tobuy/{{item[0]}}" class="buy-btn m-5" style="margin-left: 17rem;"> Buy Now</a>
+                              
+            </div>
+            <div class="col-md-6">
+                <b>    
+                    <p class="text-center text-light">{{item[2]}}</p>
+                    <p class="text-center text-light">{{item[4]}}</p>
+                </b>
+            </div>
+            {% endfor %}
+        </ul>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+    <video src="http://www.youtube.com/watch?v=mC_c-1st_Rg">
+
+    </video>
+    <!-- <section class=" p-4">
+        <ul class="cs-hidden">
+            {% for item in vegetable%}
+                <li>
+                    <div class="box bg-info">
+                        <div class="s">
+                            <img src="../static/images/{{item[5]}}" alt="{{item[1]}}" class="text-light" width="300px" height="300px">
+                            
+                            
+                        </div>
+                        <a href="/tobuy/{{item[0]}}" class="buy-btn">Buy {{item[1]}}</a>
+                        <b>
+    
+                            <p class="text-center text-light">{{item[2]}}</p>
+                            <p class="text-center text-light">{{item[4]}}</p>
+                        </b>
+                        <div class="detail-box">
+                            {{item[1]}} <br>
+                           
+                            <br><br>
+                            <b class="text-warning">KES {{item[3]}}</b>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+
+        </ul>
+    </section> -->
+
+
+
+{%include'footer.html'%}
+
+</body>
+</html>    

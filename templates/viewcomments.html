@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments</title>
+    <link rel="icon" type="image/png" sizes="256x256" href="../static/images/logo.png">
+    <link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/files/css/lightslider.css">
+    <link rel="stylesheet" href="../static/files/css/style.css">
+
+    
+    <script src="../static/files/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/files/js/jquery.js"></script>
+    <script src="../static/files/js/script.js"></script>
+    <script src="../static/files/js/lightslider.js"></script>
+</head>
+<style>
+    body{
+        background-image: url("../static/images/background.jpeg");
+        background-size: cover;
+        background-position: fixed;
+    }
+    .img{
+            transition: 2s;
+        }
+        .img:hover{
+            transform: scale(1.1);
+        }
+        span{
+            transition: 2s;
+        }
+        span:hover{
+            transform: scale(2);
+        }
+        card{
+          background-color: darkslategrey;
+        }
+        .show{
+            margin-left: 80px;
+            background-color: rgb(99, 98, 100);
+            color: rgb(62, 61, 61);
+            height: 400px;
+            width: 500px;
+            overflow: scroll;
+            border: 15px solid black;
+            border-right: 10px dotted red transparent;
+            border-top: 10px solid rgb(21, 115, 104);
+            border-bottom: 10px solid rgb(21, 115, 104);
+            border-left: 10px dotted red transparent;
+        }
+        .shown{
+            margin-left: 100px;
+            background-color: rgb(99, 98, 100);
+            color: rgb(63, 62, 64);
+            height: 400px;
+            width: 500px;
+            overflow: scroll;
+            border: 15px solid black;
+            border-right: 10px dotted red transparent;
+            border-top: 10px solid rgb(21, 115, 104);
+            border-bottom: 10px solid rgb(21, 115, 104);
+            border-left: 10px dotted red transparent;
+        }
+
+</style>
+<body class="bg m-2">
+    {%include 'Navbar.html'%}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-6 ">
+            <div class="text-warning text-center display-5">
+                Positive Comments
+            </div>
+            
+            <section class=" p-4 show">
+                <ul class="cs-hidden ">
+                    {% for item in positive%}
+                        <li>
+                            <div class="box bg-info">
+                                <b>{{item[1]}} Said That</b>  
+                                <div class="detail-box">
+                                    {{item[2]}} <br>
+                                    
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}        
+                </ul>
+            </section>
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="text-warning text-center display-5">
+                Negative Comments
+            </div>
+            
+            <section class=" p-4 shown">
+                <ul class="cs-hidden ">
+                    {% for item in negative%}
+                        <li>
+                            <div class="box bg-info">
+                                <b>{{item[1]}} Said That</b>  
+                                <div class="detail-box">
+                                    {{item[2]}} <br>
+                                    
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}        
+                </ul>
+            </section>
+        </div>
+
+
+        
+    </div>
+
+</body>
+</html>

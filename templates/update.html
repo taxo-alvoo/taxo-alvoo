@@ -1,0 +1,34 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>upload</title>
+    <link rel="stylesheet" href="../static/files/css/bootstrap.css">
+    <script src="../static/files/js/bootstrap.js"></script>
+</head>
+<body  class="bg-in">
+    {%include'Navbar.html'%}
+    <div class="container">
+        <section class="row">
+            <div class="col-md-6 ms-5 card shadow p-2 bg-dark">
+                <h1 class="display-5 text-light">UPDATE YOUR ELEMENT</h1><br><br>
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <input type="number" required name="product_id" class="form-control" placeholder="Enter The Product ID"><br>
+                    <input type="text" required name="product_name" placeholder="Enter Name" id="" class="form-control">
+                    <br>
+                    <input type="number" placeholder="cost" name="product_cost" id="" class="form-control">
+                    <br>
+                    <br>
+                    <input type="file" name="image_name" id="" class="form-control"><br>
+                    <input type="submit" value="UPDATE" class="btn-success">
+                </form>
+                <b class="text-success">{{message}}</b>
+            </div>
+        </section>
+    </div>
+    <br><br><br>
+    
+    {%include'footer.html'%}
+</body>
+</html> -->

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+    <link rel="stylesheet" href="../static/files/css/bootstrap.css">
+    <link rel="icon" type="image/png" sizes="256x256" href="../static/images/logo.png">
+</head>
+<body>
+    {%include'Navbar.html'%}
+    <br><br>
+    <br><br><br>
+     <h1 class="text-primary text-center">Create an Account</h1>
+        <section class="row  text-center p-5" style="margin-left: 21rem;">
+            
+            <div class="col-md-6 ms-5 card shadow p-2 bg-dark"  >
+                <form action="/register" method="post" >
+                    <input type="text"  name="username" placeholder="Enter Name" id="" class="form-control">
+                    <br>
+                    <input type="email"  placeholder="Enter  Email " name="email" class="form-control">
+                    <br>
+                    <input type="tel" name="phone_no" placeholder="Enter Phone +254711142414"  id="" class="form-control">
+                    <br>
+                    <input type="password" name="password1" placeholder="Enter password" class="form-control">
+                    <br>                
+                    <input type="password" name="cpassword" placeholder="Confirm password" class="form-control">
+                    <br>
+                    <input type="submit" value="Register" class="btn btn-success text-center" class="form-control ">
+                    <br>
+                </form>
+                <br>
+                <a href="/login">
+                    <b>I Have An Account To</b>
+                    <input type="submit" value=" Login" class="btn btn-light text-center" class="form-control ">
+
+                </a>
+                
+                
+            </div>
+        </section>
+        <b class="text-success">{{success}}</b>
+        <b class="text-danger">{{error}}</b> 
+</body>
+</html>

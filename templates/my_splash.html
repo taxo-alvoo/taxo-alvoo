@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mkulima </title>
+  <!-- css supporting files -->
+<link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
+<link rel="stylesheet" href="../static/files/css/style.css">
+<link rel="icon" type="image/png" sizes="256x256" href="../static/images/logo.png">
+
+<!-- js supporting files -->
+<script src="../static/files/js/jquery.js"></script>
+<script src="../static/files/js/bootstrap.bundle.min.js"></script>
+
+
+<style>
+  body {
+    font-family: Arial,'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-image: url('../static/images/bg.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 100px;
+    display:flex;    
+  }
+  .container{
+    padding:300px;
+    padding-left: 500px;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+  }
+  .loader {   
+    display: flex;
+    justify-content: center;
+    position:relative;
+    align-items: center;
+    height: 10em;
+    width:10em;
+  }
+  .circle {
+    width:100px;
+    height: 100px;
+    border-radius: 200px;
+    border-style:solid;
+    position:absolute;
+  }
+  .circle.white {
+    border-width:8px 8px 0  0;
+    border-color:gold gold transparent transparent;
+    animation: rotate-white 1s infinite linear;
+  }
+.circle.red {
+    border-width:0 8px 8px 0;
+    border-color: firebrick firebrick transparent transparent;
+    animation: rotate-red 1s infinite linear;
+}
+  .circle.blue {
+    border-width: 0  15px 15px 0 ;
+    border-color:transparent green green transparent;
+    animation: rotate-blue 1s linear infinite;
+  }
+
+@keyframes rotate-blue {
+  from {
+    transform: rotateX(70deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(70deg) rotateX(3600deg);
+  }
+}
+
+@keyframes rotate-white{
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-red{
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+ .name {
+    position: fixed;
+    top: 300px;
+    left: 0;
+    width: 20rem;
+    height: 24rem;  
+    z-index: 4; /* higher z-index */
+    font-size:450% ;
+    text-align: center;
+  }
+  .name1 {
+    position:sticky;
+    top: 200px;
+    left: 100px;
+    width: 200px;
+    height: 50%;  
+    z-index: 2; /* higher z-index */
+    font-size:450% ;
+    image-orientation: center;
+  }
+.p{
+  text-align:center;
+}
+</style>
+</head>
+<div class="container">
+    <div class="loader rounded">
+        <div class="circle white"></div>
+        <div class="circle red"></div>
+        <div class="circle blue"></div>
+    </div>
+</div>
+<div class="brand">
+    <p class="name1 text-white">
+        <img src="../static/images/applogo.jpg" alt="mylogo" class="name1" height="20rem" width="20rem">
+        <b class="text-success">
+        </b> <b class="text-success">M-</b><b class="text-info">kulima</b>Mkononi</p>
+</div>
+
+<script>
+// Function to update countdown timer
+function updateCountdown(seconds) {
+    // This function can be used to update the countdown display if needed
+}
+
+// Function to redirect after waiting
+function redirect() {
+    window.location.href = '/home'; 
+}
+
+// Countdown timer
+let secondsRemaining = 5; 
+updateCountdown(secondsRemaining);
+const countdownInterval = setInterval(() => {
+    secondsRemaining--;
+    updateCountdown(secondsRemaining);
+    if (secondsRemaining <= 0) {
+    clearInterval(countdownInterval);
+    redirect("/home");
+    }
+}, 1000);
+</script>
+<div>
+</div>
+</body>
+</html>

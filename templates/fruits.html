@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/png" sizes="256x256" href="../static/images/logo.png">
+    <link rel="stylesheet" href="../static/files/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/files/css/lightslider.css">
+    <link rel="stylesheet" href="../static/files/css/style.css">
+
+    
+    <script src="../static/files/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/files/js/jquery.js"></script>
+    <script src="../static/files/js/script.js"></script>
+    <script src="../static/files/js/lightslider.js"></script>
+</head>
+<style>
+    body{
+        background-image: url("../static/images/background.jpeg");
+        background-size: cover;
+        background-position: fixed;
+    }
+    .img{
+            transition: 2s;
+        }
+        .img:hover{
+            transform: scale(1.1);
+        }
+        span{
+            transition: 2s;
+        }
+        span:hover{
+            transform: scale(2);
+        }
+        card{
+          background-color: darkslategrey;
+        }
+
+</style>
+<body class="bg m-2">
+    {%include 'Navbar.html'%}
+    <br>
+    <br>
+    <br>
+    <br>
+    {%include 'carousel.html'%}
+    <br>
+    <br>
+    <br>
+    
+    <marquee behavior="scrol" direction="left" class="text-center"></marquee>
+    <h1 class="display-4 text-warning">FRUITS</h1>
+    <section class="slider p-4">
+        <ul class="cs-hidden autoWidth" style="height: 20rem; width: 27rem;" >
+            {% for item in fruit%}
+                <li>
+                    <div class="box bg-info">
+                        <div class="slide-img">
+                            <img src="../static/images/{{item[5]}}" alt="{{item[1]}}" class="text-light" width="25%" height="25%">
+                            <div class="overlay">
+                                <a href="/tobuy/{{item[0]}}" class="buy-btn"> Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="detail-box">
+                            {{item[1]}} <br>
+                            <b class="text-warning">KES {{item[3]}}</b>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+
+        </ul>
+    </section>
+
+<section>
+    {% for item in fruit %}
+
+    <div class="row">
+        <div class="col-md-6 padding-left-30px">
+            <img src="../static/images/{{item[5]}}" alt="{{item[1]}}" style="height: 27rem;width: 27rem;">
+            <br>
+            
+                <a href="/tobuy/{{item[0]}}" class="buy-btn text-center"> Buy Now</a>
+        
+        </div>
+        <div class="col-md-6">
+            <p>
+                {{item[2]}}
+            </p>
+        </div>
+
+
+    </div>
+    {% endfor %}
+</section>
+<hr>
+
+    <br><br>
+    <!-- <section class="slider p-4">
+        <ul class="cs-hidden autoWidth" style="height: 20rem; width: 27rem;" >
+            {% for item in fruit%}
+                <li>
+                    <div class="box bg-info">
+                        <div class="slide-img">
+                            <img src="../static/images/{{item[5]}}" alt="{{item[1]}}" class="text-light" width="25%" height="25%">
+                            <div class="overlay">
+                                <a href="/tobuy/{{item[0]}}" class="buy-btn"> Buy Now</a>
+                            </div>
+                        </div>
+                        <div class="detail-box">
+                            {{item[1]}} <br>
+                            <b class="text-warning">KES {{item[3]}}</b>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+
+        </ul>
+    </section> -->
+    {%include'footer.html'%}
+
+</body>
+</html>
